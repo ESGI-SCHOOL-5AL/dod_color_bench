@@ -36,7 +36,7 @@ impl Shapes {
     }
 }
 
-pub fn count_number_rect_oob(shapes: &[Shape]) -> (u16, u16) {
+pub fn count_number_rect_oop(shapes: &[Shape]) -> (u16, u16) {
     return shapes.iter()
         .fold((0, 0), |acc, shape| {
             return match shape.shape_type {

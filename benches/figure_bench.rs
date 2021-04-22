@@ -1,6 +1,6 @@
 use rand::prelude::*;
 use criterion::{ criterion_group, criterion_main, Criterion, BenchmarkId };
-use dod_color_bench::figure::{ Shape, Shapes, ShapeType, count_number_rect_oob, count_number_rect_dod };
+use dod_color_bench::figure::{ Shape, Shapes, ShapeType, count_number_rect_oop, count_number_rect_dod };
 
 fn generate_shape_list(number: u8) -> Vec<Shape> {
     let mut rng = rand::thread_rng();
@@ -39,15 +39,15 @@ fn generate_shapes(number: u8) -> Shapes {
         });
 }
 
-fn run_oob_dod_bench(c: &mut Criterion) {
-    let mut group = c.benchmark_group("oob_dod");
+fn run_oop_dod_bench(c: &mut Criterion) {
+    let mut group = c.benchmark_group("oop_dod");
     let bench_range: [u8; 6] = [10, 20, 50, 100, 150, 200];
     
     for number_element  in bench_range.iter() {
         group.bench_with_input(
-        BenchmarkId::new("oob", number_element), 
+        BenchmarkId::new("oop", number_element), 
         &generate_shape_list(*number_element), 
-        |b, number_element| b.iter(|| count_number_rect_oob(number_element))
+        |b, number_element| b.iter(|| count_number_rect_oop(number_element))
         );
         group.bench_with_input(
         BenchmarkId::new("dod", number_element),
@@ -59,5 +59,5 @@ fn run_oob_dod_bench(c: &mut Criterion) {
     group.finish();
 }
 
-criterion_group!(benches, run_oob_dod_bench);
+criterion_group!(benches, run_oop_dod_bench);
 criterion_main!(benches);
