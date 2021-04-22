@@ -1,0 +1,16 @@
+[package]
+name = "dod_color_bench"
+version = "1.0.0"
+authors = ["LAURENT Louis <louis_laurent@aol.fr>"]
+edition = "2018"
+publish = false
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "0.8.3"
+criterion = "0.3"
+
+[[bench]]
+name = "figure_bench"
+harness = false
