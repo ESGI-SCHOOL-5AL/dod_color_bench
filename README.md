@@ -5,4 +5,4 @@ Main project: [dod_color](https://github.com/ESGI-SCHOOL-5AL/dod_color)
 
 ## Result
 
-![dod bench result](./line.svg "dod bench result")
+![dod bench result](/lines.svg "dod bench result")
